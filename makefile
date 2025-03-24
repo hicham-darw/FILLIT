@@ -23,9 +23,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@ -I includes/ -I ../LIBFT/includes/
 
 clean:
-	rm $(OBJ_DIR)/*.o
+	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)
 fclean: clean
-	rm -rf $(OBJ_DIR) $(LIB)
+	rm -rf $(OBJ_DIR) $(LIB) $(PROGRAM_NAME)
 
 all: $(PROGRAM_NAME)
 re: fclean all
