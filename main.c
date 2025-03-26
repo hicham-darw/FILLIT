@@ -27,15 +27,22 @@ int	main(int ac, char **av)
 		vec = ft_split_whitespaces(buff);
 		if(!vec)
 			return (-1);
+//----------------------------------------------------
+	//////////// ccheck heeeeeeeeeeeeeeeeeere
+		if(check_valid_tetris(vec) == 0)
+		{
+			write(2, "ERROR: invalide example\n", 24);
+			return (-1);
+		}
 		ptr = cut_tetris(vec);
 		// free vector vec-------------------
 		ft_del_vector(vec);
 		if(!vec)
-			write(1, "free vec\n", 9);
-		if (check_valid_tetris(ptr) == 0)
+			write(1, "should free vec\n", 16);
+		if(check_ptr(ptr) == 0)
 		{
-			write(2, "ERROR: invalide example\n", 24);
-			return (-1);
+			ft_putendl("ERROR: invalid_example");
+			return 0;
 		}
 		// here open your mind and think how work fill it hahahha;
 		size_table = 4;

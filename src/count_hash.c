@@ -1,29 +1,23 @@
 #include "fillit.h"
 
-int	count_hash(char **vec)
+int	count_hash(char **vec,int start, int last)
 {
-	int	counter, i, j;
+	int	counter, i;
 
 	if (!vec)
 		return 0;
+	
 	counter = 0;
-	i = 0;
-	while(vec[i])
+	while(start < last && vec[start])
 	{
-		j = 0;
-		while(vec[i][j])
+		i = 0;
+		while(vec[start][i])
 		{
-			if(vec[i][j] == '.')
-				j++;
-			else if (vec[i][j] == '#')
-			{
-				counter++;
-				j++;
-			}
-			else
-				return 0;
+			if(vec[start][i] == '#')
+				counter += 1;
+			i++;
 		}
-		i++;
+		start++;
 	}
 	return counter;
 }
